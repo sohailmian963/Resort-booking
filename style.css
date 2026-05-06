@@ -59,10 +59,6 @@ a {
     background: var(--blue2);
     border-radius: 3px
 }
-
-/* ══════════════════════════════════
-   NAV
-══════════════════════════════════ */
 nav {
     position: fixed;
     top: 0;
@@ -191,9 +187,6 @@ nav.scrolled {
     border-bottom: 1px solid var(--border)
 }
 
-/* ══════════════════════════════════
-   HERO
-══════════════════════════════════ */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -440,10 +433,6 @@ nav.scrolled {
     color: var(--muted);
     margin-top: 4px
 }
-
-/* ══════════════════════════════════
-   SECTION COMMON
-══════════════════════════════════ */
 section {
     padding: 100px 5%
 }
@@ -486,9 +475,6 @@ section {
     max-width: 520px
 }
 
-/* ══════════════════════════════════
-   ABOUT / INTRO
-══════════════════════════════════ */
 .about {
     background: var(--navy2);
     position: relative;
@@ -604,9 +590,6 @@ section {
     line-height: 1.6
 }
 
-/* ══════════════════════════════════
-   ROOMS
-══════════════════════════════════ */
 .rooms {
     background: var(--navy)
 }
@@ -754,10 +737,6 @@ section {
     color: var(--silver2);
     border-color: var(--silver2)
 }
-
-/* ══════════════════════════════════
-   GALLERY
-══════════════════════════════════ */
 .gallery {
     background: var(--navy2);
     padding: 100px 0
@@ -824,9 +803,6 @@ section {
     opacity: 1
 }
 
-/* ══════════════════════════════════
-   AMENITIES
-══════════════════════════════════ */
 .amenities-sec {
     background: var(--navy3)
 }
@@ -901,9 +877,6 @@ section {
     line-height: 1.6
 }
 
-/* ══════════════════════════════════
-   BOOKING SECTION
-══════════════════════════════════ */
 .booking-sec {
     background: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1600&q=80') center/cover fixed;
     position: relative;
@@ -1054,9 +1027,6 @@ select option {
     transform: translateY(-1px)
 }
 
-/* ══════════════════════════════════
-   BOOKINGS TABLE
-══════════════════════════════════ */
 .records-sec {
     background: var(--navy2);
     padding: 80px 5%
@@ -1211,9 +1181,6 @@ tbody tr:last-child td {
     letter-spacing: 0.05em
 }
 
-/* ══════════════════════════════════
-   TESTIMONIALS
-══════════════════════════════════ */
 .testimonials {
     background: var(--navy)
 }
@@ -1308,9 +1275,6 @@ tbody tr:last-child td {
     margin-bottom: 12px
 }
 
-/* ══════════════════════════════════
-   FOOTER
-══════════════════════════════════ */
 footer {
     background: var(--navy3);
     border-top: 1px solid var(--border)
@@ -1393,9 +1357,6 @@ footer {
     letter-spacing: 0.05em
 }
 
-/* ══════════════════════════════════
-   MODAL (Room Detail)
-══════════════════════════════════ */
 .modal-bg {
     position: fixed;
     inset: 0;
@@ -1526,9 +1487,6 @@ footer {
     color: var(--accent)
 }
 
-/* ══════════════════════════════════
-   TOAST
-══════════════════════════════════ */
 .toast {
     position: fixed;
     bottom: 32px;
@@ -1597,9 +1555,7 @@ footer {
     transition-delay: 0.4s
 }
 
-/* ══════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════ */
+
 @media(max-width:1024px) {
     .rooms-grid {
         grid-template-columns: 1fr 1fr
