@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure Grand Resort</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ── NAV ── -->
+    <nav id="mainNav">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">✦</div>
+            Azure <span>Grand</span>
+        </a>
+        <div class="nav-links">
+            <a href="#rooms">Rooms</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#amenities">Amenities</a>
+            <a href="#book">Book Now</a>
+            <a href="#records">My Bookings</a>
+        </div>
+        <button type="button" class="nav-cta" onclick="scrollTo('#book')">Reserve</button>
+        <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#rooms" onclick="toggleMenu()">Rooms</a>
+        <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+        <a href="#amenities" onclick="toggleMenu()">Amenities</a>
+        <a href="#book" onclick="toggleMenu()">Book Now</a>
+        <a href="#records" onclick="toggleMenu()">My Bookings</a>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Luxury Coastal Resort</div>
+            <h1>Azure <em>Grand</em><br>Resort</h1>
+            <p class="hero-tagline">Where the Ocean Meets Elegance</p>
+            <div class="hero-actions">
+                <button type="button" class="btn-primary" onclick="scrollTo('#book')">Book Your Stay</button>
+                <button type="button" class="btn-outline" onclick="scrollTo('#rooms')">Explore Rooms</button>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num">48</div>
+                <div class="hero-stat-label">Luxury Rooms</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">5★</div>
+                <div class="hero-stat-label">Rating</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">12</div>
+                <div class="hero-stat-label">Amenities</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">24/7</div>
+                <div class="hero-stat-label">Concierge</div>
+            </div>
+        </div>
+        <div class="hero-scroll"><span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="about">
+        <div class="about-inner">
+            <div class="about-img-wrap reveal">
+                <div class="about-img-main">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80"
+                        alt="Resort Interior" loading="lazy" />
+                </div>
+                <div class="about-img-badge">
+                    <strong>25</strong>
+                    <span>Years of Excellence</span>
+                </div>
+            </div>
+            <div class="reveal reveal-delay-2">
+                <span class="sec-tag">About the Resort</span>
+                <h2 class="sec-title">A Legacy of <em>Luxury</em></h2>
+                <div class="sec-bar"></div>
+                <p class="sec-desc">Perched on a pristine coastline, Azure Grand Resort offers an unparalleled retreat
+                    where timeless elegance meets modern comfort. Every detail is curated for the discerning guest.</p>
+                <div class="about-features">
+                    <div class="about-feat">
+                        <div class="about-feat-icon">🌊</div>
+                        <h4>Ocean View</h4>
+                        <p>Panoramic sea views from every suite</p>
+                    </div>
+                    <div class="about-feat">
+                        <div class="about-feat-icon">🍽️</div>
+                        <h4>Fine Dining</h4>
+                        <p>Award-winning culinary experiences</p>
+                    </div>
+                    <div class="about-feat">
+                        <div class="about-feat-icon">🧖</div>
+                        <h4>Spa & Wellness</h4>
+                        <p>World-class treatments & therapies</p>
+                    </div>
+                    <div class="about-feat">
+                        <div class="about-feat-icon">🏊</div>
+                        <h4>Infinity Pool</h4>
+                        <p>Heated infinity pool with ocean horizon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ROOMS ── -->
+    <section class="rooms" id="rooms">
+        <div class="rooms-header reveal">
+            <span class="sec-tag">Accommodations</span>
+            <h2 class="sec-title">Our <em>Rooms</em> & Suites</h2>
+            <div class="sec-bar"></div>
+        </div>
+        <div class="rooms-grid">
+
+            <div class="room-card featured reveal" onclick="openModal('presidential')">
+                <div class="room-img">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80"
+                        alt="Presidential Suite" loading="lazy" />
+                </div>
+                <div class="room-info">
+                    <div class="room-type">Signature Suite</div>
+                    <div class="room-name">Presidential Suite</div>
+                    <div class="room-desc">The pinnacle of luxury. A full-floor retreat with private terrace, butler
+                        service, and sweeping ocean panoramas.</div>
+                    <div class="room-amenities">
+                        <span class="amenity">Ocean View</span>
+                        <span class="amenity">Private Butler</span>
+                        <span class="amenity">Jacuzzi</span>
+                    </div>
+                    <div class="room-meta">
+                        <div class="room-price">$1,200 <span>/ night</span></div>
+                    </div>
+                    <button type="button" class="room-btn">View Details →</button>
+                </div>
+            </div>
+
+            <div class="room-card reveal reveal-delay-1" onclick="openModal('deluxe')">
+                <div class="room-img">
+                    <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80" alt="Deluxe Room"
+                        loading="lazy" />
+                </div>
+                <div class="room-info">
+                    <div class="room-type">Premium</div>
+                    <div class="room-name">Deluxe Ocean Room</div>
+                    <div class="room-desc">Spacious comfort with direct ocean views, king bed, and private balcony.
+                    </div>
+                    <div class="room-meta">
+                        <div class="room-price">$480 <span>/ night</span></div>
+                    </div>
+                    <button type="button" class="room-btn">View Details →</button>
+                </div>
+            </div>
+
+            <div class="room-card reveal reveal-delay-2" onclick="openModal('junior')">
+                <div class="room-img">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80"
+                        alt="Junior Suite" loading="lazy" />
+                </div>
+                <div class="room-info">
+                    <div class="room-type">Suite</div>
+                    <div class="room-name">Junior Suite</div>
+                    <div class="room-desc">A refined blend of comfort and style with separate living area and coastal
+                        views.</div>
+                    <div class="room-meta">
+                        <div class="room-price">$680 <span>/ night</span></div>
+                    </div>
+                    <button type="button" class="room-btn">View Details →</button>
+                </div>
+            </div>
+
+            <div class="room-card reveal reveal-delay-1" onclick="openModal('standard')">
+                <div class="room-img">
+                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=80"
+                        alt="Standard Room" loading="lazy" />
+                </div>
+                <div class="room-info">
+                    <div class="room-type">Classic</div>
+                    <div class="room-name">Standard Room</div>
+                    <div class="room-desc">Elegant essentials with premium bedding, en-suite bath, and garden views.
+                    </div>
+                    <div class="room-meta">
+                        <div class="room-price">$280 <span>/ night</span></div>
+                    </div>
+                    <button type="button" class="room-btn">View Details →</button>
+                </div>
+            </div>
+
+            <div class="room-card reveal reveal-delay-2" onclick="openModal('suite')">
+                <div class="room-img">
+                    <img src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=800&q=80" alt="Grand Suite"
+                        loading="lazy" />
+                </div>
+                <div class="room-info">
+                    <div class="room-type">Grand</div>
+                    <div class="room-name">Grand Suite</div>
+                    <div class="room-desc">Two-bedroom suite with wraparound balcony, kitchenette, and premium
+                        amenities.</div>
+                    <div class="room-meta">
+                        <div class="room-price">$920 <span>/ night</span></div>
+                    </div>
+                    <button type="button" class="room-btn">View Details →</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── GALLERY ── -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-header reveal">
+            <span class="sec-tag">Visual Tour</span>
+            <h2 class="sec-title">Resort <em>Gallery</em></h2>
+            <div class="sec-bar"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="g-item">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=80" alt="Resort Pool"
+                    loading="lazy" />
+            </div>
+            <div class="g-item">
+                <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80" alt="Room"
+                    loading="lazy" />
+            </div>
+            <div class="g-item">
+                <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600&q=80" alt="Spa"
+                    loading="lazy" />
+            </div>
+            <div class="g-item">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600&q=80" alt="Dining"
+                    loading="lazy" />
+            </div>
+            <div class="g-item">
+                <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&q=80" alt="Beach"
+                    loading="lazy" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ── AMENITIES ── -->
+    <section class="amenities-sec" id="amenities">
+        <div class="amenities-inner">
+            <div class="amenities-top">
+                <div class="reveal">
+                    <span class="sec-tag">Facilities</span>
+                    <h2 class="sec-title">World-Class <em>Amenities</em></h2>
+                    <div class="sec-bar"></div>
+                    <p class="sec-desc">From the infinity pool that kisses the horizon to our award-winning spa, every
+                        facility is crafted for an extraordinary experience.</p>
+                </div>
+                <div class="amenities-img reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" alt="Spa"
+                        loading="lazy" />
+                </div>
+            </div>
+            <div class="amenities-list reveal">
+                <div class="am-item">
+                    <div class="am-icon">🏊</div>
+                    <div class="am-text">
+                        <h4>Infinity Pool</h4>
+                        <p>Heated saltwater infinity pool with panoramic ocean views, open sunrise to midnight</p>
+                    </div>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🧖</div>
+                    <div class="am-text">
+                        <h4>Azure Spa</h4>
+                        <p>Full-service spa with 14 treatment rooms, hammam, and hydrotherapy circuit</p>
+                    </div>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🍽️</div>
+                    <div class="am-text">
+                        <h4>The Coral Restaurant</h4>
+                        <p>Michelin-starred dining with locally sourced coastal cuisine and wine cellar</p>
+                    </div>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🏋️</div>
+                    <div class="am-text">
+                        <h4>Fitness Center</h4>
+                        <p>State-of-the-art gym with personal trainers, yoga studio, and ocean views</p>
+                    </div>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🚤</div>
+                    <div class="am-text">
+                        <h4>Water Sports</h4>
+                        <p>Private beach, kayaks, snorkeling, sailing, and deep-sea fishing charters</p>
+                    </div>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🍸</div>
+                    <div class="am-text">
+                        <h4>Skyline Bar</h4>
+                        <p>Rooftop cocktail bar with 360° panoramas, craft cocktails, and live jazz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BOOKING ── -->
+    <section class="booking-sec" id="book">
+        <div class="booking-overlay">
+            <div class="booking-inner">
+                <div class="booking-top">
+                    <div class="reveal">
+                        <span class="sec-tag">Reservations</span>
+                        <h2 class="sec-title">Book Your <em>Stay</em></h2>
+                        <div class="sec-bar"></div>
+                        <p class="sec-desc" style="margin-top:20px">Secure your perfect escape. All bookings are
+                            confirmed instantly and stored locally.</p>
+                        <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px">
+                            <div style="display:flex;gap:14px;align-items:center">
+                                <div
+                                    style="width:36px;height:36px;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:14px;flex-shrink:0">
+                                    ✓</div>
+                                <span style="font-size:13px;color:var(--silver)">Instant booking confirmation</span>
+                            </div>
+                            <div style="display:flex;gap:14px;align-items:center">
+                                <div
+                                    style="width:36px;height:36px;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:14px;flex-shrink:0">
+                                    ✓</div>
+                                <span style="font-size:13px;color:var(--silver)">Best rate guarantee</span>
+                            </div>
+                            <div style="display:flex;gap:14px;align-items:center">
+                                <div
+                                    style="width:36px;height:36px;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:14px;flex-shrink:0">
+                                    ✓</div>
+                                <span style="font-size:13px;color:var(--silver)">Free cancellation up to 48hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="booking-form-wrap reveal reveal-delay-2">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fName">Guest Name</label>
+                                <input type="text" id="fName" placeholder="Full Name" />
+                                <span class="err-msg" id="fNameErr">Name is required.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="fEmail">Email Address</label>
+                                <input type="email" id="fEmail" placeholder="your@email.com" />
+                                <span class="err-msg" id="fEmailErr">Valid email required.</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fCheckin">Check-in Date</label>
+                                <input type="date" id="fCheckin" />
+                                <span class="err-msg" id="fCheckinErr">Check-in required.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="fCheckout">Check-out Date</label>
+                                <input type="date" id="fCheckout" />
+                                <span class="err-msg" id="fCheckoutErr">Must be after check-in.</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fRoom">Room Type</label>
+                                <div class="sel-wrap">
+                                    <select id="fRoom">
+                                        <option value="">Select Room</option>
+                                        <option value="Standard Room">Standard Room — $280/night</option>
+                                        <option value="Deluxe Ocean Room">Deluxe Ocean Room — $480/night</option>
+                                        <option value="Junior Suite">Junior Suite — $680/night</option>
+                                        <option value="Grand Suite">Grand Suite — $920/night</option>
+                                        <option value="Presidential Suite">Presidential Suite — $1,200/night</option>
+                                    </select>
+                                </div>
+                                <span class="err-msg" id="fRoomErr">Select a room type.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="fGuests">Number of Guests</label>
+                                <input type="number" id="fGuests" placeholder="1–10" min="1" max="10" />
+                                <span class="err-msg" id="fGuestsErr">Enter 1–10 guests.</span>
+                            </div>
+                        </div>
+                        <button type="button" class="form-submit" onclick="submitBooking()">Confirm Reservation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ── -->
+    <section class="testimonials">
+        <div class="test-inner">
+            <div class="test-header reveal">
+                <span class="sec-tag">Guest Reviews</span>
+                <h2 class="sec-title">What Guests <em>Say</em></h2>
+                <div class="sec-bar"></div>
+            </div>
+            <div class="test-grid">
+                <div class="test-card reveal">
+                    <div class="test-quote">"</div>
+                    <div class="test-stars">★★★★★</div>
+                    <p class="test-text">An absolutely transformative experience. The Presidential Suite is unlike
+                        anything I have encountered worldwide. The staff anticipate your every need.</p>
+                    <div class="test-author">
+                        <div class="test-avatar">S</div>
+                        <div>
+                            <div class="test-name">Sarah Mitchell</div>
+                            <div class="test-loc">New York, USA</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card reveal reveal-delay-1">
+                    <div class="test-quote">"</div>
+                    <div class="test-stars">★★★★★</div>
+                    <p class="test-text">The Coral Restaurant alone is worth the trip. Paired with the Azure Spa and the
+                        infinity pool — this resort sets the gold standard for coastal luxury.</p>
+                    <div class="test-author">
+                        <div class="test-avatar">J</div>
+                        <div>
+                            <div class="test-name">James Harrington</div>
+                            <div class="test-loc">London, UK</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card reveal reveal-delay-2">
+                    <div class="test-quote">"</div>
+                    <div class="test-stars">★★★★★</div>
+                    <p class="test-text">We celebrated our anniversary here and it exceeded every expectation. The
+                        attention to detail in every room, every meal, every interaction is extraordinary.</p>
+                    <div class="test-author">
+                        <div class="test-avatar">A</div>
+                        <div>
+                            <div class="test-name">Amara & Yusuf</div>
+                            <div class="test-loc">Dubai, UAE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── RECORDS ── -->
+    <section class="records-sec" id="records">
+        <div class="records-inner">
+            <div class="records-top">
+                <div>
+                    <span class="sec-tag">Your Bookings</span>
+                    <h2 class="sec-title" style="font-size:clamp(24px,3vw,36px)">Booking <em>Records</em></h2>
+                    <p class="rec-count" id="recCount"></p>
+                </div>
+                <button type="button" class="btn-clear-all" onclick="clearAll()">Clear All Bookings</button>
+            </div>
+            <div class="tbl-wrap">
+                <table id="bookTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Guest</th>
+                            <th>Room Type</th>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                            <th>Guests</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookBody"></tbody>
+                </table>
+                <div class="empty-tbl" id="emptyTbl">
+                    <div class="empty-tbl-icon">◻</div>
+                    <p>No reservations yet. Book your stay above.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-main">
+            <div>
+                <div class="footer-brand-name">Azure <span>Grand</span> Resort</div>
+                <p class="footer-desc">A sanctuary of refined luxury on the world's most beautiful coastline. Where
+                    every stay becomes a treasured memory.</p>
+            </div>
+            <div>
+                <div class="footer-h">Navigation</div>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#rooms">Rooms & Suites</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#book">Book Now</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-h">Experiences</div>
+                <ul class="footer-links">
+                    <li><a href="#">Fine Dining</a></li>
+                    <li><a href="#">Azure Spa</a></li>
+                    <li><a href="#">Water Sports</a></li>
+                    <li><a href="#">Skyline Bar</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-h">Contact</div>
+                <div class="footer-contact">
+                    1 Azure Bay Drive<br>
+                    Coastal Riviera, CR 90210<br><br>
+                    +1 (800) 292-7310<br>
+                    reservations@azuregrand.com
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Azure Grand Resort. All rights reserved.</p>
+            <p>Privacy Policy · Terms of Service</p>
+        </div>
+    </footer>
+
+    <!-- ── ROOM MODAL ── -->
+    <div class="modal-bg" id="modalBg" onclick="closeModal(event)">
+        <div class="modal-box" id="modalBox">
+            <button type="button" class="modal-close" onclick="closeModalBtn()">✕</button>
+            <div class="modal-img"><img id="modalImg" src="" alt="" /></div>
+            <div class="modal-body">
+                <div class="modal-type" id="modalType"></div>
+                <div class="modal-name" id="modalName"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-details" id="modalDetails"></div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-primary" onclick="bookFromModal()" style="flex:1">Book This
+                        Room</button>
+                    <button type="button" class="btn-outline" onclick="closeModalBtn()"
+                        style="padding:18px 28px">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── TOAST ── -->
+    <div class="toast" id="toast">
+        <div class="toast-title" id="toastTitle"></div>
+        <div class="toast-msg" id="toastMsg"></div>
+    </div>
+    <script src="script.js">script.js</script>
+</body>
+
+</html>
