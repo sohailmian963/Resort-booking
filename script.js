@@ -1,4 +1,3 @@
-// ── ROOM DATA ──
 const ROOMS={
   presidential:{type:'Signature Suite',name:'Presidential Suite',img:'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80',desc:'The absolute pinnacle of resort living. A private full-floor retreat with panoramic ocean views from every angle, a wraparound terrace, grand piano, and dedicated butler available around the clock.',details:{Size:'220 sqm',Capacity:'Up to 4 guests',View:'360° Ocean Panorama',Price:'$1,200 / night'},roomVal:'Presidential Suite'},
   deluxe:{type:'Premium',name:'Deluxe Ocean Room',img:'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=80',desc:'Spacious and refined, the Deluxe Ocean Room features a king-size bed, private balcony with unobstructed sea views, marble en-suite, and premium minibar.',details:{Size:'58 sqm',Capacity:'Up to 2 guests',View:'Direct Ocean View',Price:'$480 / night'},roomVal:'Deluxe Ocean Room'},
@@ -8,8 +7,6 @@ const ROOMS={
 };
 
 let currentModalRoom=null;
-
-// ── MODAL ──
 function openModal(key){
   const r=ROOMS[key];currentModalRoom=r;
   document.getElementById('modalImg').src=r.img;
@@ -28,8 +25,6 @@ function bookFromModal(){
   if(currentModalRoom){document.getElementById('fRoom').value=currentModalRoom.roomVal}
   document.getElementById('book').scrollIntoView({behavior:'smooth'});
 }
-
-// ── NAV ──
 window.addEventListener('scroll',()=>{
   document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>40)
 });
@@ -39,8 +34,6 @@ function toggleMenu(){
   document.body.style.overflow=isOpen?'hidden':''; // Fix 5: prevent bg scroll when menu open
 }
 function scrollTo(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'})}
-
-// ── PARTICLES ──
 (function(){
   const c=document.getElementById('particles');
   for(let i=0;i<18;i++){
@@ -51,21 +44,18 @@ function scrollTo(sel){document.querySelector(sel).scrollIntoView({behavior:'smo
     c.appendChild(p);
   }
 })();
-
-// ── SCROLL REVEAL ──
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-// ── DATES (Fix 1: local date, Fix 4: checkout auto-reset on checkin change) ──
 const today=new Date().toLocaleDateString('en-CA'); // Fix 1: local timezone, not UTC
 document.getElementById('fCheckin').min=today;
 document.getElementById('fCheckout').min=today;
 document.getElementById('fCheckin').addEventListener('change',function(){
   const coEl=document.getElementById('fCheckout');
   if(this.value){
-    // Fix 4: always reset checkout if it is no longer valid after checkin changes
+
     const d=new Date(this.value);d.setDate(d.getDate()+1);
     const minCo=d.toLocaleDateString('en-CA'); // Fix 1: local timezone
     coEl.min=minCo;
@@ -77,13 +67,10 @@ document.getElementById('fCheckin').addEventListener('change',function(){
     coEl.value='';
   }
 });
-
-// ── STORAGE ──
 const KEY='azure_bookings';
 function getB(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch{return[]}}
 function saveB(b){localStorage.setItem(KEY,JSON.stringify(b))}
 
-// ── TOAST ──
 function showToast(title,msg,type=''){
   const t=document.getElementById('toast');
   document.getElementById('toastTitle').textContent=title;
@@ -92,8 +79,6 @@ function showToast(title,msg,type=''){
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3600);
 }
-
-// ── VALIDATION HELPERS ──
 function setErr(id,errId,show){
   document.getElementById(id).classList.toggle('err',show);
   document.getElementById(errId).classList.toggle('show',show);
@@ -101,8 +86,6 @@ function setErr(id,errId,show){
 function clearErrs(){
   [['fName','fNameErr'],['fEmail','fEmailErr'],['fCheckin','fCheckinErr'],['fCheckout','fCheckoutErr'],['fRoom','fRoomErr'],['fGuests','fGuestsErr']].forEach(([a,b])=>setErr(a,b,false));
 }
-
-// ── SUBMIT ──
 function submitBooking(){
   clearErrs();
   const n=document.getElementById('fName').value.trim();
@@ -129,25 +112,20 @@ function submitBooking(){
   document.getElementById('records').scrollIntoView({behavior:'smooth'});
 }
 
-// ── DELETE ──
 function delBooking(id){
   saveB(getB().filter(b=>b.id!==id));renderTable();
   showToast('Booking Removed','Reservation has been deleted.','err');
 }
 
-// ── CLEAR ALL ──
 function clearAll(){
   if(!getB().length){showToast('No Records','No bookings to clear.','err');return}
   if(!confirm('Delete all reservations?'))return;
   saveB([]);renderTable();
   showToast('All Cleared','All reservations removed.','err');
 }
-
-// ── FORMAT DATE ──
 function fmtDate(v){if(!v)return'—';const[y,m,d]=v.split('-');return`${d}/${m}/${y}`}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 
-// ── RENDER ──
 function renderTable(){
   const b=getB();
   const tbody=document.getElementById('bookBody');
